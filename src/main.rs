@@ -143,12 +143,13 @@ async fn run() {
         .await
         .unwrap();
 
+
     let (device, queue) = adapter
         .request_device(
             &wgpu::DeviceDescriptor {
                 label: None,
                 features: wgpu::Features::empty(),
-                limits: wgpu::Limits::default(),
+                limits: adapter.limits(),
             },
             None,
         )
